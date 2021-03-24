@@ -16,9 +16,11 @@ import java.util.Arrays;
 public class DemoApplication {
 
 	public static void main(String[] args) {
-		ApplicationContext applicationContext = new AnnotationConfigApplicationContext("Beans");
-		System.out.println(Arrays.asList(Arrays.stream(applicationContext.getBeanDefinitionNames()).filter(a -> !a.startsWith("org")).toArray()));
 		SpringApplication.run(DemoApplication.class, args);
+		/*
+		Dependency Injection: зависимости передаются в объект извне.
+		Dependency Lookup: зависимости объекту не передаются извне. Объект сам решает как и когда ему запросить зависимости.
+		 */
 
 
 		//Singleton example
@@ -55,7 +57,7 @@ public class DemoApplication {
 		//Request example
 		/*
 		Создаётся один бин на каждый HTTP запрос.
-		Не знаю как показать разницу с сингллтоном так как не знаю как сделать http запрос.
+		Не знаю как показать разницу с сингллтоном так как не знаю как создать http запрос.
 		Поэтому оставлю данный пример в таком виде.
 		 */
 		context =  new AnnotationConfigApplicationContext("Beans");
